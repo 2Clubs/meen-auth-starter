@@ -12,7 +12,7 @@ sessionsRouter.get('/new', (req, res) => {
 })
 
 // Delete (logout route
-sessionsRouter.delete("/", async (req, res) => {
+sessionsRouter.delete("/", (req, res) => {
     req.session.destroy((error) => {
         res.redirect('/')
     })
