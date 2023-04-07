@@ -29,6 +29,9 @@ app.use(
 const userController = require("./controllers/users")
 app.use("/users", userController)
 
+const sessionsController = require("./controllers/sessions")
+app.use("/sessions", sessionsController)
+
 // Listener
 const PORT = process.env.PORT
 app.listen(PORT, () => console.log(`listening on port ${PORT}`))
