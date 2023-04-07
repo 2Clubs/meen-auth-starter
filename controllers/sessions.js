@@ -5,11 +5,13 @@ const sessionsRouter = express.Router();
 const User = require("../models/user");
 
 // New (login page)
+sessionsRouter.get('/new', (req, res) => {
+    res.render('sessions/new.ejs')
+})
 
 // Delete (logout route
 sessionsRouter.delete("/", async (req, res) => {
     req.session.destroy((error) => {
-        console.log(req.session)
         res.redirect('/')
     })
 })
@@ -26,7 +28,6 @@ sessionsRouter.post("/", async (req, res) => {
     if (passwordMatches) {
       // add the user to our session
       req.session.currentUser = foundUser;
-      console.log(req.session)
       res.redirect("/");
     } else {
       // If passwords don't match
